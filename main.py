@@ -1,18 +1,16 @@
-from utile_import import * # textures file pathings
+from utile_import import * # chemin des fichiers de textures
 import pygame
 import pandas
 import os
-from Bouton import * # Class bouton
+from Bouton import * # Classe bouton
+from variables import *
 
 # Code principal
 if __name__ == '__main__':
 
-    # variable titre et taille de l'écran
-    SCREEN_SIZE = (1000, 1000)
-    TITRE = "3313"
-
+    
     # couleur fond
-    FOND = (0, 0, 0)
+    FOND = (Couleur)
 
     # init
     pygame.init()
