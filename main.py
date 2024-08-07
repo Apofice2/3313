@@ -1,16 +1,8 @@
-# os
-import os
-
-# image texture
-from utile_import import *
-# pygame
+from utile_import import * # textures file pathings
 import pygame
-
-# pandas
 import pandas
-
-# bouton
-from bouton import *
+import os
+from Bouton import * # Class bouton
 
 # Code principal
 if __name__ == '__main__':

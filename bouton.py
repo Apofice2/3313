@@ -1,10 +1,6 @@
-# image texture
-from utile_import import *
-# pygame
+from utile_import import * # textures file pathings
 import pygame
-# pandas
 import pandas
-# os
 import os
 
 class Bouton:
