@@ -9,7 +9,7 @@ import os
 # bouton
 from bouton import *
 
-# Appliquation mis à jour
+# Appliquation mis à jour.
 
 # Code principal
 if __name__ == '__main__':
