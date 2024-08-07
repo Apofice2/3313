@@ -1,11 +1,14 @@
+# os
+import os
+
 # image texture
 from utile_import import *
 # pygame
 import pygame
+
 # pandas
 import pandas
-# os
-import os
+
 # bouton
 from bouton import *
 
