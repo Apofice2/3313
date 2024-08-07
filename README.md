@@ -1,1 +1,1 @@
-# Jeux python de plateform fait sous pygame
+# Jeux python de plateforme fait sous pygame
