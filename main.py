@@ -8,16 +8,11 @@ from variables import *
 # Code principal
 if __name__ == '__main__':
 
-    
-    # couleur fond
-    FOND = (Couleur)
-
     # init
     pygame.init()
     screen = pygame.display.set_mode(SCREEN_SIZE)
 
-    # titre de l'écrans
-    pygame.display.set_caption(TITRE)
+    pygame.display.set_caption(TITRE)   # titre de l'écrans
 
     # init horloge
     clock = pygame.time.Clock()
@@ -40,7 +35,7 @@ if __name__ == '__main__':
         bouton_menu = Bouton((200, 100), IMG_BLOCK_METAL, (400, 300), "titre_temporaire")
 
         # la couleur de fond de l'écran
-        screen.fill(FOND)
+        screen.fill(COULEUR_FOND_FENETRE)
 
         bouton_menu.affichage_image(screen)
 
