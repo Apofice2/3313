@@ -1,14 +1,13 @@
 
 # //importation des packages nécéssaires//
 
-# intall the libraryin commandline
+# intall the library in command line in a terminal
 # pip install pygame
+# pip install pandas
+# pip install os
+
 import pygame
-
-# pandas
 import pandas
-
-# os
 import os
 
 # chemind'accès de tout les fichiers
