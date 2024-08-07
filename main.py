@@ -10,20 +10,17 @@ if __name__ == '__main__':
 
     # init
     pygame.init()
-    screen = pygame.display.set_mode(SCREEN_SIZE)
+    screen = pygame.display.set_mode(SCREEN_SIZE) # taille de la fenetre
+    screen.fill(COULEUR_FOND_FENETRE) # la couleur de fond d'écran
 
     pygame.display.set_caption(TITRE)   # titre de l'écrans
 
-    # init horloge
-    clock = pygame.time.Clock()
-
-    # condition qui continue le jeu
-    JEUX_ON = True
-
-    # etat_jeu
-    liste_etat_jeu = ["MENU", "NIVEAU_TEST"]
+    clock = pygame.time.Clock()     # init horloge
 
     etat_jeu = liste_etat_jeu[0]
+
+    bouton_menu = Bouton((200, 100), IMG_BLOCK_METAL, (400, 300), "titre_temporaire")
+    bouton_menu.affichage_image(screen)
 
     # game loop
     while JEUX_ON:
@@ -32,12 +29,7 @@ if __name__ == '__main__':
             if event.type == pygame.QUIT:
                 JEUX_ON = False
 
-        bouton_menu = Bouton((200, 100), IMG_BLOCK_METAL, (400, 300), "titre_temporaire")
-
-        # la couleur de fond de l'écran
-        screen.fill(COULEUR_FOND_FENETRE)
-
-        bouton_menu.affichage_image(screen)
+        
 
         # flip() met à jour l'image
         pygame.display.flip()
