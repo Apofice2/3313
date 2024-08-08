@@ -10,7 +10,6 @@ if __name__ == '__main__':
 
     
     # couleur fond
-    FOND = (Couleur)
 
     # init
     pygame.init()
