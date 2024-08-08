@@ -19,7 +19,7 @@ rect1_inner_cursor = pygame.Rect(rect_x, rect_y, 2, 2)
 pygame.font.init()
 my_font = pygame.font.SysFont('Comic Sans MS', 10)
 
-
+ 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: exit()
