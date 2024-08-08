@@ -8,26 +8,22 @@ from variables import *
 # Code principal
 if __name__ == '__main__':
 
-    
-    # couleur fond
-
     # init
     pygame.init()
-    screen = pygame.display.set_mode(SCREEN_SIZE)
+    screen = pygame.display.set_mode(SCREEN_SIZE) # taille de la fenetre
+    screen.fill(COULEUR_FOND_FENETRE) # la couleur de fond d'écran
+    pygame.display.set_caption(TITRE)   # titre de l'écrans
 
-    # titre de l'écrans
-    pygame.display.set_caption(TITRE)
-
-    # init horloge
-    clock = pygame.time.Clock()
-
-    # condition qui continue le jeu
-    JEUX_ON = True
-
-    # etat_jeu
-    liste_etat_jeu = ["MENU", "NIVEAU_TEST"]
+    clock = pygame.time.Clock()     # init horloge
 
     etat_jeu = liste_etat_jeu[0]
+
+    bouton_menu = Bouton((200, 100), IMG_BLOCK_METAL, (400, 300), "titre_temporaire")
+    bouton_menu.affichage_image(screen)
+
+    dt = 0
+
+    player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
     # game loop
     while JEUX_ON:
@@ -36,18 +32,24 @@ if __name__ == '__main__':
             if event.type == pygame.QUIT:
                 JEUX_ON = False
 
-        bouton_menu = Bouton((200, 100), IMG_BLOCK_METAL, (400, 300), "titre_temporaire")
+        pygame.draw.circle(screen, "red", player_pos, 40)
 
-        # la couleur de fond de l'écran
-        screen.fill(FOND)
-
-        bouton_menu.affichage_image(screen)
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_w]:
+            player_pos.y -= 300 * dt
+        if keys[pygame.K_s]:
+            player_pos.y += 300 * dt
+        if keys[pygame.K_a]:
+            player_pos.x -= 300 * dt
+        if keys[pygame.K_d]:
+            player_pos.x += 300 * dt
 
         # flip() met à jour l'image
         pygame.display.flip()
 
         # limits FPS to 60
-        clock.tick(60)
+        # clock.tick(60)
+        dt = clock.tick(60) / 1000
 
     # quit
     pygame.quit()
