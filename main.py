@@ -18,38 +18,51 @@ if __name__ == '__main__':
 
     etat_jeu = liste_etat_jeu[0]
 
-    bouton_menu = Bouton((200, 100), IMG_BLOCK_METAL, (400, 300), "titre_temporaire")
-    bouton_menu.affichage_image(screen)
-
     dt = 0
 
-    player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+    image_joueur = pygame.image.load(IMG_PLAYER_BASE)
+
+    joueur = image_joueur.get_rect()
+
+    joueur.x, joueur.y = (100, 100)  # Coordonnées arbitraire
+
+    bouton_menu = Bouton((200, 100), IMG_BLOCK_METAL, (400, 300), "titre_temporaire")
 
     # game loop
     while JEUX_ON:
 
+        screen.fill(COULEUR_FOND_FENETRE)
+
         for event in pygame.event.get():
+            if bouton_menu.detection_bouton(event) == True:
+                JEUX_ON = False
+
             if event.type == pygame.QUIT:
                 JEUX_ON = False
 
-        pygame.draw.circle(screen, "red", player_pos, 40)
-
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_w]:
-            player_pos.y -= 300 * dt
+        if keys[pygame.K_z]:
+            joueur.y -= 5
         if keys[pygame.K_s]:
-            player_pos.y += 300 * dt
-        if keys[pygame.K_a]:
-            player_pos.x -= 300 * dt
+            joueur.y += 5
+        if keys[pygame.K_q]:
+            joueur.x -= 5
         if keys[pygame.K_d]:
-            player_pos.x += 300 * dt
+            joueur.x += 5
 
-        # flip() met à jour l'image
-        pygame.display.flip()
+
+        # Affichage du joueur.
+        screen.blit(image_joueur, (joueur.x, joueur.y))
+        pygame.draw.rect(screen, (0, 255, 0), joueur, 2)
+
+        bouton_menu.affichage_image(screen)
 
         # limits FPS to 60
         # clock.tick(60)
-        dt = clock.tick(60) / 1000
+        dt = clock.tick(60)/1000
+
+        # flip() met à jour l'image
+        pygame.display.flip()
 
     # quit
     pygame.quit()
