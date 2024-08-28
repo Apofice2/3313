@@ -34,8 +34,12 @@ class Bouton:
 
         self.bouton.x, self.bouton.y = coordonnée_bouton
 
+        # Calcule de la taille du texte en fonction de la taille du bouton.
+        # largeur_bouton // ratio = taille bouton.
+        font_size = int(self.bouton.width / 6)
+
         # Création d'une police
-        font = pygame.font.Font(None, 40)
+        font = pygame.font.Font(None, font_size)
 
         # Création du texte
         self.text_afficher = font.render(text, True, (255, 255, 0))
@@ -45,7 +49,10 @@ class Bouton:
 
         # Affichage de l'image dans le rectangle
         screen.blit(self.image_bouton, self.bouton)
-        screen.blit(self.text_afficher, self.bouton.center)
+
+        # Les coodonnées du texte sont calculés en fonction de l'emplacement du bouton et sa taille.
+        screen.blit(self.text_afficher, (self.coordonnée_bouton[0] + (self.taille_bouton[0] // 12),
+                                         self.coordonnée_bouton[1] + (self.taille_bouton[1] // 2.5)))
 
         # Rectangle vert, épaisseur 2 pixels
         pygame.draw.rect(screen, (255, 255, 0),self.bouton, 2)
