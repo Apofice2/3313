@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     joueur.x, joueur.y = (100, 100)  # Coordonnées arbitraire
 
-    bouton_menu = Bouton((200, 100), IMG_BLOCK_METAL, (400, 300), "titre_temporaire")
+    bouton_menu = Bouton((200, 100), IMG_BLOCK_METAL, (400, 300), "mon titre")
 
     # game loop
     while JEUX_ON:
